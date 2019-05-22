@@ -49,7 +49,7 @@ Notes:
 - You should create a function that checks for userInput validation to easily handle it for all menus.
 - Use the Auto Inc feature when creating a primary key to automatically populate your IDs.
 - You can make an ArrayList of ArrayLists like this: ArrayList<ArrayList<String>> test = new ArrayList<ArrayList<String>>();
-
+- Timestamp is the data type for time and date in PostGres.
 
 ### Challenge
 - Allow replies by tracking the previousMailID
