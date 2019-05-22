@@ -1,7 +1,6 @@
 # java-review3-groupProject
 
 
-
 Email System
 
 Hierarchy
@@ -21,17 +20,8 @@ Hierarchy
                     (1) Subject
                     (2) Body
                     (3) Important (Optional)
-                C) See all CCMail Sent Subjects up to 12 chars
+                C) Log Out
                     (1) Click on CCMail to read body
-                D) Options
-                    (1) Change email address
-                    (2) Change password
-
-
-Topics
-
-    A) User Authentication
-    B) Objects/Classes
 
 Tables
     1. Users
@@ -48,7 +38,8 @@ Tables
         7. dateTimeSent
         8. previousMailID
 
-
+Problems
+- I'm only tracking a single emaail so if you delete one you'll delete both.
 
 Notes:
 - The table name user is already in use by something else.
