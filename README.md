@@ -48,3 +48,14 @@ Tables
         7. dateTimeSent
         8. previousMailID
 
+
+
+Notes:
+- The table name user is already in use by something else.
+- You should create a function that checks for userInput validation to easily handle it for all menus.
+- Use the Auto Inc feature when creating a primary key to automatically populate your IDs.
+- You can make an ArrayList of ArrayLists like this: ArrayList<ArrayList<String>> test = new ArrayList<ArrayList<String>>();
+
+Challenges
+- Allow replies by tracking the previousMailID
+- Allow mail importance by sorting by isImportant, then date
