@@ -75,6 +75,29 @@ public class user {
 
     }
 
+    public static int UserVerification(String username, String password)
+    {
+        try {
+            Connection conn = connect();
+
+            String SQL = "select * from mailmaster where name = ?";
+            PreparedStatement stmt = conn.prepareStatement(SQL);
+            stmt.setString(1,username);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                if (rs.getString(3).equals(password)) {
+                    return rs.getInt(1);
+                } else {
+                    return 0;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage( ));
+        }
+        return 0;
+    }
+
 
 //     sql statement to create a new user
         // execute create new user

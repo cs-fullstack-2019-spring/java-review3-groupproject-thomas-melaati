@@ -7,8 +7,7 @@ import java.util.Scanner;
 public class Main extends mail {
     public static Scanner scan = new Scanner(System.in);
     public static boolean running;
-    public static String dummyUser = "user";
-    public static String dummyPassword = "Password";
+    public static String Username;
 
 
     public static void viewMail()
@@ -37,7 +36,7 @@ public class Main extends mail {
     public static void mailSystem() {
         boolean viewingMail = true;
         do {
-            System.out.println("Welcome " + dummyUser + ". what would you like to do?");
+            System.out.println("Welcome " + Username + ". what would you like to do?");
             System.out.println("1. View Your mail.");
             System.out.println("2. Write a new message");
             System.out.println("3. log out");
@@ -55,10 +54,12 @@ public class Main extends mail {
                 case ("3"): {
                     System.out.println("Logging out");
                     viewingMail = false;
+                    Username = null;
                     break;
                 }
                 case ("4"): {
                     System.out.println("Good bye");
+                    Username = null;
                     viewingMail = false;
                     running =true;
                     break;
@@ -74,8 +75,10 @@ public class Main extends mail {
         String userNameToTest = scan.next();
         System.out.println("Please Enter Password");
         String userPassword = scan.next();
-        if (userNameToTest.equals(dummyUser) && userPassword.equals(dummyPassword)) {
+        int userID = user.UserVerification(userNameToTest,userPassword);
+        if (userID != 0) {
             System.out.println("You Successfully logged in");
+            Username = userNameToTest;
             mailSystem();
         } else {
             System.out.println("Loggin was incorrect");
@@ -86,14 +89,14 @@ public class Main extends mail {
         do {
             System.out.println("\n" + "Welcome To CodeCrew Mailers");
             System.out.println("What would you like to do?");
-            System.out.println("1. Create a new use");
+            System.out.println("1. Create a new user");
             System.out.println("2. Log into your account");
             System.out.println("3. Exit project");
             String userCommand = scan.next();
 
             switch (userCommand) {
                 case ("1"): {
-                    System.out.println("System in the work");
+                    user.createNewUser();
                     break;
                 }
                 case ("2"): {
