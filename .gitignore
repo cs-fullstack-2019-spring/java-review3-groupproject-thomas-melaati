@@ -1,3 +1,6 @@
 .idea/
 HelloWorld.iml java-review3-groupproject-thomas-melaati.iml
 HelloWorld.iml
+out/
+.idea/
+.idea/workspace.xml
