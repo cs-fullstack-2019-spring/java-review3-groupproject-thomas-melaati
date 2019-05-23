@@ -9,6 +9,7 @@ public class Main extends mail {
     public static Scanner scan = new Scanner(System.in);
     public static boolean running;
     public static String Username;
+    public static int userID;
 
 
     public static void viewMail()
@@ -76,7 +77,7 @@ public class Main extends mail {
         String userNameToTest = scan.next();
         System.out.println("Please Enter Password");
         String userPassword = scan.next();
-        int userID = user.UserVerification(userNameToTest,userPassword);
+         userID = user.UserVerification(userNameToTest,userPassword);
         if (userID != 0) {
             System.out.println("You Successfully logged in");
             Username = userNameToTest;
