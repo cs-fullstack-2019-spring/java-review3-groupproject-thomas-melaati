@@ -5,6 +5,7 @@ import company.mail.*;
 import java.util.Scanner;
 
 public class Main extends mail {
+
     public static Scanner scan = new Scanner(System.in);
     public static boolean running;
     public static String dummyUser = "user";
