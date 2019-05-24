@@ -128,7 +128,6 @@ public class user {
                 if(numberToReturn == rs.getInt(1)){
                     return numberToReturn;
                 }
-                else return 0;
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage( ));

@@ -49,7 +49,7 @@ public class Main extends mail {
                 case ("2"): {
                     int sendTo = user.getUserToSendTo();
                     if (sendTo != 0) {
-                        mail.createNewCodeCrewMail(userID);
+                        mail.createNewCodeCrewMail(userID,sendTo);
                         break;
                     }
                     else {
