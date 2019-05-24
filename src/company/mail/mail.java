@@ -13,7 +13,7 @@ public class mail extends user {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, user, password);
-            System.out.println("Connected to the PostgreSQL server successfully.");
+//            System.out.println("Connected to the PostgreSQL server successfully.");
 
 
         } catch (SQLException e) {
@@ -120,11 +120,11 @@ public class mail extends user {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                System.out.println(rs.getString(2));
-                System.out.println(rs.getString(3));
-                System.out.println(rs.getString(4));
-                System.out.println(rs.getString(6));
-                System.out.println(rs.getString(7));
+                System.out.println();
+                System.out.println("From: " + rs.getString(4));
+                System.out.println("Subject: " + rs.getString(2));
+                System.out.println("Body: " +rs.getString(3));
+                System.out.println("Date & Time: " + rs.getString( 6));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
