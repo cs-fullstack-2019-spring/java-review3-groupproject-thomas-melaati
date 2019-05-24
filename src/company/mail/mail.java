@@ -119,10 +119,10 @@ public class mail extends user {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                System.out.println(rs.getString(2));
-                System.out.println(rs.getString(3));
-                System.out.println(rs.getString(4));
-                System.out.println(rs.getString(6));
+                System.out.print(rs.getString(2));
+                System.out.print(rs.getString(3));
+                System.out.print(rs.getString(4));
+                System.out.print(rs.getString(6));
                 System.out.println(rs.getString(7));
             }
         } catch (SQLException e) {

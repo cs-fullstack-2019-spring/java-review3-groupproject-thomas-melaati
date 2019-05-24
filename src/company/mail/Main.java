@@ -19,13 +19,13 @@ public class Main extends mail {
 
             mail.viewYourMail(userID);
             System.out.println("enter a number to view or exit to return");
-            String mailCommand = scan.next();
+            String mailCommand = scan.nextLine();
             if (mailCommand.equalsIgnoreCase("exit")) {
                 mailwork = false;
             }
             else
                 {
-                    System.out.println("Command in the works");
+                    viewSelectedMail(Integer.parseInt(mailCommand));
                 }
         }
         while (mailwork);
