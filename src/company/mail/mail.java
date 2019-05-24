@@ -41,7 +41,7 @@ public class mail extends user {
 
     }
 
-    public static void createNewCodeCrewMail(int fromuserid) {
+    public static void createNewCodeCrewMail(int fromuserid, int toUserID) {
         boolean boolToSave;
         Connection conn = connect();
         Scanner scan = new Scanner(System.in);
@@ -63,12 +63,13 @@ public class mail extends user {
 
         try {
 
-            String SQL = "insert into codecrewmail(subject, body,fromuserid,touserid,isimportant) values (?,?,?,1,?)";
+            String SQL = "insert into codecrewmail(subject, body,fromuserid,touserid,isimportant) values (?,?,?,?,?)";
             PreparedStatement stmt = conn.prepareStatement(SQL);
             stmt.setString(1, subject);
             stmt.setString(2, body);
             stmt.setInt(3, fromuserid);
-            stmt.setBoolean(4, boolToSave);
+            stmt.setInt(4, toUserID);
+            stmt.setBoolean(5, boolToSave);
             stmt.executeUpdate();
 //            while(rs.next()){
 
@@ -128,6 +129,9 @@ public class mail extends user {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
+        System.out.println("press Enter to escape");
+        String escape = scan.nextLine();
 
     }
 }
