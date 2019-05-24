@@ -8,15 +8,15 @@ You can see the hierarchy below:
 ```
 Hierarchy
     A) Welcome to Code School Mail.
-    B) Create a new User
-        I. Enter your name
-        II. Enter your password
+    B) Create a new User complete
+        I. Enter your name complete
+        II. Enter your password complete 
     C) Sign in
         I. Welcome [NAME]. What would you like to do?
         II. Check CCMail
             (1) List all CCMail. Include To, From, and Subject up to 12 chars
                 i. Choose a CCMail for more details
-                    A) Press enter to go back to CCMail
+                    A) Press enter to go back to CCMail 
                     B) <strong>Challenge:</strong> Type 'delete' to delete the message.
         III. Write a new CCMail
             (1) Pick user out of existing users

@@ -50,13 +50,14 @@ public class Main extends mail {
                     break;
                 }
                 case ("2"): {
-                    System.out.println("System in the works");
+                    mail.createNewCodeCrewMail(userID);
                     break;
                 }
                 case ("3"): {
                     System.out.println("Logging out");
                     viewingMail = false;
                     Username = null;
+                    userID = 0;
                     break;
                 }
                 case ("4"): {
