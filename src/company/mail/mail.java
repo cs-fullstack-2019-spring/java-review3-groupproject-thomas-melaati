@@ -13,7 +13,7 @@ public class mail extends user {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, user, password);
-            System.out.println("Connected to the PostgreSQL server successfully.");
+//            System.out.println("Connected to the PostgreSQL server successfully.");
 
 
         } catch (SQLException e) {
