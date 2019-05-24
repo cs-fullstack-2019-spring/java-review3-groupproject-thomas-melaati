@@ -17,10 +17,7 @@ public class Main extends mail {
         boolean mailwork = true;
         do {
 
-            System.out.println("Here is your mail");
-            System.out.println("1. from | Subject | datetime release");
-            System.out.println("2. from | Subject | datetime release");
-            System.out.println("3. from | Subject | datetime release");
+            mail.viewYourMail(userID);
             System.out.println("enter a number to view or exit to return");
             String mailCommand = scan.next();
             if (mailCommand.equalsIgnoreCase("exit")) {

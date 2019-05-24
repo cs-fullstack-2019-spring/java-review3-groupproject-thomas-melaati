@@ -84,7 +84,26 @@ public class mail extends user {
 
     }
 
-    public static void view(){
+    public static void viewYourMail(int userid){
+        Connection conn = connect();
 
+        try {
+
+            String SQL = "select * from codecrewmail where touserid=?";
+            PreparedStatement stmt = conn.prepareStatement(SQL);
+            stmt.setInt(1,userid);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                System.out.print(rs.getString(1));
+                System.out.print(rs.getString(2));
+                System.out.print(rs.getString(3));
+                System.out.print(rs.getString(4));
+                System.out.print(rs.getString(6));
+                System.out.println(rs.getString(7));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
