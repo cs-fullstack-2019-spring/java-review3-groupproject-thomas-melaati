@@ -162,9 +162,8 @@ public class user {
         Connection conn = connect();
         try {
 
-            String SQL = "select * from mailmaster where name = ?";
+            String SQL = "select * from mailmaster";
             PreparedStatement stmt = conn.prepareStatement(SQL);
-            stmt.setString(1,usernameToTest);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 if(rs.getString("name").equals(usernameToTest))
@@ -172,13 +171,12 @@ public class user {
                     System.out.println("Username already in user");
                     return false;
                 }
-                else return true;
 
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return(false);
+        return(true);
     }
 
 
