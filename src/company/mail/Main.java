@@ -40,15 +40,22 @@ public class Main extends mail {
             System.out.println("2. Write a new message");
             System.out.println("3. log out");
             System.out.println("4. exit");
-            String userInterface = scan.next();
+            String userInterface = scan.nextLine();
             switch (userInterface) {
                 case ("1"): {
                     viewMail();
                     break;
                 }
                 case ("2"): {
-                    mail.createNewCodeCrewMail(userID);
-                    break;
+                    int sendTo = user.getUserToSendTo();
+                    if (sendTo != 0) {
+                        mail.createNewCodeCrewMail(userID);
+                        break;
+                    }
+                    else {
+                        System.out.println("Person does not exit please enter a correct number"+"\n");
+                        break;
+                    }
                 }
                 case ("3"): {
                     System.out.println("Logging out");
@@ -72,10 +79,13 @@ public class Main extends mail {
     public static void Loggin() {
         System.out.println("Welcome To LogIn");
         System.out.println("Please Enter Your Username");
-        String userNameToTest = scan.next();
+        String userNameToTest = scan.nextLine();
+
         System.out.println("Please Enter Password");
-        String userPassword = scan.next();
-         userID = user.UserVerification(userNameToTest,userPassword);
+        String userPassword = scan.nextLine();
+
+
+        userID = user.UserVerification(userNameToTest,userPassword);
         if (userID != 0) {
             System.out.println("You Successfully logged in");
             Username = userNameToTest;
@@ -92,7 +102,7 @@ public class Main extends mail {
             System.out.println("1. Create a new user");
             System.out.println("2. Log into your account");
             System.out.println("3. Exit project");
-            String userCommand = scan.next();
+            String userCommand = scan.nextLine();
 
             switch (userCommand) {
                 case ("1"): {
