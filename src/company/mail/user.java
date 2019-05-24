@@ -53,7 +53,7 @@ public class user {
         do {
             System.out.println("Enter name");
             name = scan.nextLine();
-        }while (isUserNameInUser(name));
+        }while (!(isUserNameInUser(name)));
         System.out.println("Enter Password");
         String password=scan.nextLine();
 
@@ -169,6 +169,7 @@ public class user {
             while(rs.next()){
                 if(rs.getString("name").equals(usernameToTest))
                 {
+                    System.out.println("Username already in user");
                     return false;
                 }
                 else return true;
