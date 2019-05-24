@@ -52,14 +52,11 @@ public class mail extends user {
         String body = scan.nextLine();
         System.out.println("is it important?");
         String isimportant = scan.next();
-        if(isimportant.equalsIgnoreCase("yes"))
-        {
+        if (isimportant.equalsIgnoreCase("yes")) {
             boolToSave = true;
+        } else {
+            boolToSave = false;
         }
-        else
-            {
-                boolToSave = false;
-            }
 
         System.out.println("Thankyou Mail Sent");
 
@@ -71,7 +68,7 @@ public class mail extends user {
             stmt.setString(1, subject);
             stmt.setString(2, body);
             stmt.setInt(3, fromuserid);
-            stmt.setBoolean(4,boolToSave);
+            stmt.setBoolean(4, boolToSave);
             stmt.executeUpdate();
 //            while(rs.next()){
 
@@ -84,26 +81,53 @@ public class mail extends user {
 
     }
 
-    public static void viewYourMail(int userid){
+    public static void viewYourMail(int userid) {
         Connection conn = connect();
 
         try {
 
             String SQL = "select * from codecrewmail where touserid=?";
             PreparedStatement stmt = conn.prepareStatement(SQL);
-            stmt.setInt(1,userid);
+            stmt.setInt(1, userid);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                System.out.print(rs.getString(1));
-                System.out.print(rs.getString(2));
-                System.out.print(rs.getString(3));
-                System.out.print(rs.getString(4));
-                System.out.print(rs.getString(6));
+                System.out.print(rs.getString(1) + ". ");
+                System.out.print(rs.getString(2) + " | ");
+                if (rs.getString("body").length() < 5) {
+                    System.out.print(rs.getString(3) + " | ");
+                } else {
+                    System.out.print(rs.getString(3).substring(0, 5) + "... | ");
+                }
+                System.out.print(rs.getString(4) + " | ");
+                System.out.print(rs.getString(6) + " | ");
                 System.out.println(rs.getString(7));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public static void viewSelectedMail(int mailid) {
+        Connection conn = connect();
+
+        try {
+
+            String SQL = "select * from codecrewmail where mailid=?";
+            PreparedStatement stmt = conn.prepareStatement(SQL);
+            stmt.setInt(1,mailid);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                System.out.println(rs.getString(2));
+                System.out.println(rs.getString(3));
+                System.out.println(rs.getString(4));
+                System.out.println(rs.getString(6));
+                System.out.println(rs.getString(7));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
