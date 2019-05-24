@@ -45,12 +45,15 @@ public class user {
     }
 
     public static void createNewUser(){
+
         Connection conn = connect();
+        String name;
         Scanner scan = new Scanner(System.in);
         System.out.println("Create a new User");
-        System.out.println("Enter name");
-        String name = scan.nextLine();
-
+        do {
+            System.out.println("Enter name");
+            name = scan.nextLine();
+        }while (isUserNameInUser(name));
         System.out.println("Enter Password");
         String password=scan.nextLine();
 
@@ -116,7 +119,7 @@ public class user {
             } catch (SQLException e) {
                 System.out.println(e.getMessage( ));
             }
-            System.out.println("Who Do you want to send mail to?"+"\n");
+            System.out.println("Who Do you want to send mail to? Please enter their number"+"\n");
             int numberToReturn = scan.nextInt();
         try {
 
@@ -133,6 +136,48 @@ public class user {
             System.out.println(e.getMessage( ));
         }
         return 0;
+    }
+
+    public static String getUserName(int userID)
+    {
+        Connection conn = connect();
+        try {
+
+            String SQL = "select * from mailmaster where userid = ?";
+            PreparedStatement pstmt = conn.prepareStatement(SQL);
+            pstmt.setInt(1,userID);
+            ResultSet rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                return(rs.getString("name"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage( ));
+        }
+        return("Junk");
+    }
+
+    public static boolean isUserNameInUser(String usernameToTest)
+    {
+        Connection conn = connect();
+        try {
+
+            String SQL = "select * from mailmaster where name = ?";
+            PreparedStatement stmt = conn.prepareStatement(SQL);
+            stmt.setString(1,usernameToTest);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                if(rs.getString("name").equals(usernameToTest))
+                {
+                    return false;
+                }
+                else return true;
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return(false);
     }
 
 

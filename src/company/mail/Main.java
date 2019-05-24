@@ -35,7 +35,7 @@ public class Main extends mail {
     public static void mailSystem() {
         boolean viewingMail = true;
         do {
-            System.out.println("Welcome " + Username + ". what would you like to do?");
+            System.out.println("Welcome " + Username + ". what would you like to do? Please enter a number");
             System.out.println("1. View Your mail.");
             System.out.println("2. Write a new message");
             System.out.println("3. log out");

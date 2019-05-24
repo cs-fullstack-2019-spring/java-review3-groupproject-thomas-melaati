@@ -100,9 +100,15 @@ public class mail extends user {
                 } else {
                     System.out.print(rs.getString(3).substring(0, 5) + "... | ");
                 }
-                System.out.print(rs.getString(4) + " | ");
+                System.out.print(getUserName(rs.getInt(4)) + " | ");
                 System.out.print(rs.getString(6) + " | ");
-                System.out.println(rs.getString(7));
+                if(rs.getBoolean("isimportant"))
+                {
+                    System.out.println(" * ");
+                }
+                else{
+                    System.out.println(" ");
+                }
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -121,7 +127,7 @@ public class mail extends user {
 
             while (rs.next()) {
                 System.out.println();
-                System.out.println("From: " + rs.getString(4));
+                System.out.println("From: " + getUserName(rs.getInt(4)));
                 System.out.println("Subject: " + rs.getString(2));
                 System.out.println("Body: " +rs.getString(3));
                 System.out.println("Date & Time: " + rs.getString( 6));
